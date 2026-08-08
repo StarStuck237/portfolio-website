@@ -1,0 +1,39 @@
+<header
+  class="px-6 py-12 md:px-12 md:py-16 lg:fixed lg:flex lg:h-screen lg:w-[38%] lg:flex-col lg:justify-between lg:px-24 lg:py-24"
+>
+  <div>
+    <h1 class="text-4xl font-bold text-slate-200">Ben Cok</h1>
+    <p class="mt-2 text-lg font-medium text-slate-200">Software Engineer</p>
+    <p class="mt-4 max-w-xs text-sm leading-relaxed">
+      I build Angular + Delphi tools for nonprofit volunteer-management software at Volgistics.
+    </p>
+
+    <nav aria-label="Primary" class="mt-16 hidden lg:block">
+      <ul>
+        @for (link of navLinks; track link.id) {
+          <li>
+            <a
+              [href]="'#' + link.id"
+              [attr.aria-current]="activeSection.active() === link.id ? 'location' : null"
+              class="group flex items-center py-3"
+            >
+              <span
+                class="mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200"
+                [class.w-16]="activeSection.active() === link.id"
+                [class.bg-teal-300]="activeSection.active() === link.id"
+              ></span>
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-slate-400 transition-colors group-hover:text-slate-200"
+                [class.text-slate-200]="activeSection.active() === link.id"
+              >
+                {{ link.label }}
+              </span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <app-social-links-list [links]="socialLinks" />
+</header>

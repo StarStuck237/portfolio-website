@@ -1,0 +1,13 @@
+<section
+  id="experience"
+  appObserveSection
+  aria-labelledby="experience-heading"
+  class="mb-16 scroll-mt-16 lg:mb-24"
+>
+  <app-section-heading index="02" title="Experience" headingId="experience-heading" />
+  <div class="mt-6 space-y-10">
+    @for (job of jobs; track job.id) {
+      <app-experience-item [job]="job" />
+    }
+  </div>
+</section>

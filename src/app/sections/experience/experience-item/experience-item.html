@@ -1,0 +1,17 @@
+<div class="group">
+  <h3 class="font-semibold text-slate-200">
+    {{ job().role }} <span class="text-teal-300">· {{ job().company }}</span>
+  </h3>
+  <p class="mt-1 font-mono text-xs text-slate-400">{{ job().dateRange }}</p>
+  <ul class="mt-3 space-y-2">
+    @for (highlight of job().highlights; track highlight) {
+      <li class="flex gap-2 text-sm leading-relaxed">
+        <span class="mt-1.5 text-teal-300" aria-hidden="true">▹</span>
+        <span>{{ highlight }}</span>
+      </li>
+    }
+  </ul>
+  <div class="mt-4">
+    <app-tech-pill-list [items]="job().techStack" />
+  </div>
+</div>

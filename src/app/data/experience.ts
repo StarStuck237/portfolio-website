@@ -1,0 +1,56 @@
+import { Job } from '../core/models/job';
+
+export const EXPERIENCE: readonly Job[] = [
+  {
+    id: 'job-1',
+    company: 'Volgistics',
+    role: 'Software Engineer',
+    dateRange: '2023 — Present',
+    highlights: [
+      'Built the Volunteer Import Utility end-to-end (Angular + Delphi, ~330 commits) — upload → field mapping → validation/preview → import execution.',
+      'Built a comprehensive validation layer and resolved a long-running class of volunteer status/date bugs.',
+      'Built and grew DB-Interactor (Delphi API + Angular + Tauri desktop tool), including a major live in-place database-editing feature.',
+      'Led a multi-week WCAG 2.0 remediation effort across shared UI libraries (~15 issues).',
+      'Shipped 2FA and Cloudflare Turnstile CAPTCHA for VicNet/VBO.',
+      'Carried multiple Angular apps through the 17→21 upgrade ladder and a standalone-components migration.',
+    ],
+    techStack: ['Angular', 'TypeScript', 'Delphi', 'RxJS', 'Tauri', 'JWT', 'WCAG 2.0'],
+  },
+  {
+    id: 'job-2',
+    company: 'Professional Computing Resources',
+    role: 'Application Developer',
+    dateRange: '2012 — 2023',
+    highlights: [
+      "SME for PCR-360's Service Desk, API, Crystal Reports, Charges, Inventory, and Dashboard modules.",
+      'Built application-wide search wizards and automated workflow-based technician scheduling.',
+      'Redeveloped the product API as REST.',
+      'Built customer Crystal Reports and dashboard widgets for SLA/call metrics.',
+      'Maintained SLA compliance via code review and PHPUnit testing.',
+    ],
+    techStack: ['PHP', 'Zend Framework', 'JavaScript', 'MySQL', 'Oracle', 'Crystal Reports', 'PHPUnit'],
+  },
+  {
+    id: 'job-3',
+    company: 'Kinetic Technology Solutions',
+    role: 'Owner / President',
+    dateRange: '2011 — 2015',
+    highlights: [
+      'Ran an independent web-dev consultancy.',
+      'Designed and built an online auction website for weekly item bidding.',
+    ],
+    techStack: ['PHP', 'MySQL', 'Web Development'],
+  },
+  {
+    id: 'job-4',
+    company: 'Silas Media Consultants',
+    role: 'Director of IT and Development',
+    dateRange: '2010 — 2011',
+    highlights: [
+      'Managed all IT operations (network, vendors).',
+      'Expanded the web-dev division across Concrete5/Joomla/WordPress.',
+      'Ran Linux hosting for customer sites.',
+    ],
+    techStack: ['Web Development', 'Linux', 'WordPress'],
+  },
+];

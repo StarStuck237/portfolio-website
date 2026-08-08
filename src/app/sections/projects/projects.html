@@ -1,0 +1,13 @@
+<section
+  id="projects"
+  appObserveSection
+  aria-labelledby="projects-heading"
+  class="mb-16 scroll-mt-16 lg:mb-24"
+>
+  <app-section-heading index="03" title="Projects" headingId="projects-heading" />
+  <div class="mt-6 space-y-6">
+    @for (project of projects; track project.id) {
+      <app-project-card [project]="project" />
+    }
+  </div>
+</section>

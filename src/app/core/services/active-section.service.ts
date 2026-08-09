@@ -1,4 +1,5 @@
-import { Injectable, OnDestroy, signal } from '@angular/core';
+import { Injectable, OnDestroy, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 /**
  * How far down the viewport a section has to reach before it counts as current,
@@ -9,6 +10,8 @@ const ACTIVATION_LINE = 0.2;
 
 @Injectable({ providedIn: 'root' })
 export class ActiveSectionService implements OnDestroy {
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
   private readonly activeId = signal<string | null>(null);
   readonly active = this.activeId.asReadonly();
 
@@ -34,6 +37,7 @@ export class ActiveSectionService implements OnDestroy {
   };
 
   constructor() {
+    if (!this.isBrowser) return;
     window.addEventListener('scroll', this.onScroll, { passive: true });
     window.addEventListener('resize', this.onScroll, { passive: true });
     window.addEventListener('wheel', this.onUserScroll, { passive: true });
@@ -42,6 +46,7 @@ export class ActiveSectionService implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (!this.isBrowser) return;
     window.removeEventListener('scroll', this.onScroll);
     window.removeEventListener('resize', this.onScroll);
     window.removeEventListener('wheel', this.onUserScroll);
@@ -69,7 +74,7 @@ export class ActiveSectionService implements OnDestroy {
   }
 
   private schedule(): void {
-    if (this.frame) return;
+    if (!this.isBrowser || this.frame) return;
     this.frame = requestAnimationFrame(() => {
       this.frame = 0;
       this.update();
@@ -82,6 +87,16 @@ export class ActiveSectionService implements OnDestroy {
     const pinned = this.sections.find((section) => section.id === this.pinnedId);
     if (pinned) {
       this.activeId.set(pinned.id);
+      return;
+    }
+
+    /**
+     * Prerendering has no viewport to measure against. A visitor always lands at
+     * the top of the page, which is what the browser would pick anyway — seeding
+     * it here keeps the prerendered nav from painting with nothing highlighted.
+     */
+    if (!this.isBrowser) {
+      this.activeId.set(this.sections[0].id);
       return;
     }
 

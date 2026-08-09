@@ -14,6 +14,7 @@
           <li>
             <a
               [href]="'#' + link.id"
+              (click)="activeSection.pin(link.id)"
               [attr.aria-current]="activeSection.active() === link.id ? 'location' : null"
               class="group flex items-center py-3"
             >

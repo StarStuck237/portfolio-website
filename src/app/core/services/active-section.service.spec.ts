@@ -64,7 +64,7 @@ describe('ActiveSectionService', () => {
     expect(service.active()).toBe('about');
   });
 
-  it('picks the topmost DOM-registered section when multiple intersect', () => {
+  it('picks the bottommost DOM-registered section when multiple intersect', () => {
     const service = TestBed.inject(ActiveSectionService);
     const observer = MockIntersectionObserver.instances[0];
     const about = makeSection('about');
@@ -77,7 +77,7 @@ describe('ActiveSectionService', () => {
       { target: experience, isIntersecting: true },
     ]);
 
-    expect(service.active()).toBe('about');
+    expect(service.active()).toBe('experience');
   });
 
   it('does not clear active when nothing is intersecting (avoids nav flicker)', () => {
@@ -128,5 +128,44 @@ describe('ActiveSectionService', () => {
     ]);
 
     expect(service.active()).toBe('experience');
+  });
+
+  it('forces the last section active once a scrollable page is scrolled to the bottom', () => {
+    const service = TestBed.inject(ActiveSectionService);
+    const observer = MockIntersectionObserver.instances[0];
+    const about = makeSection('about');
+    const experience = makeSection('experience');
+
+    service.register(about);
+    service.register(experience);
+    observer.emit([{ target: about, isIntersecting: true }]);
+    expect(service.active()).toBe('about');
+
+    const innerHeightDescriptor = Object.getOwnPropertyDescriptor(window, 'innerHeight');
+    const scrollYDescriptor = Object.getOwnPropertyDescriptor(window, 'scrollY');
+    const scrollHeightDescriptor = Object.getOwnPropertyDescriptor(
+      Element.prototype,
+      'scrollHeight',
+    );
+
+    Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true });
+    Object.defineProperty(window, 'scrollY', { value: 2089, configurable: true });
+    Object.defineProperty(document.documentElement, 'scrollHeight', {
+      value: 2889,
+      configurable: true,
+    });
+
+    try {
+      window.dispatchEvent(new Event('scroll'));
+      expect(service.active()).toBe('experience');
+    } finally {
+      if (innerHeightDescriptor) Object.defineProperty(window, 'innerHeight', innerHeightDescriptor);
+      if (scrollYDescriptor) Object.defineProperty(window, 'scrollY', scrollYDescriptor);
+      if (scrollHeightDescriptor) {
+        Object.defineProperty(document.documentElement, 'scrollHeight', scrollHeightDescriptor);
+      } else {
+        delete (document.documentElement as unknown as Record<string, unknown>)['scrollHeight'];
+      }
+    }
   });
 });

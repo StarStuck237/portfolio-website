@@ -1,7 +1,7 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, OnDestroy, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class ActiveSectionService {
+export class ActiveSectionService implements OnDestroy {
   private readonly activeId = signal<string | null>(null);
   readonly active = this.activeId.asReadonly();
 
@@ -13,6 +13,16 @@ export class ActiveSectionService {
     rootMargin: '0px 0px -60% 0px',
     threshold: 0,
   });
+
+  private readonly onScroll = () => this.checkBottom();
+
+  constructor() {
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onScroll);
+  }
 
   register(element: HTMLElement): void {
     this.sections.push(element);
@@ -35,7 +45,23 @@ export class ActiveSectionService {
         this.intersecting.delete(el);
       }
     }
-    const current = this.sections.find((el) => this.intersecting.has(el));
-    if (current) this.activeId.set(current.id);
+    if (this.isAtBottom()) return;
+    for (let i = this.sections.length - 1; i >= 0; i--) {
+      if (this.intersecting.has(this.sections[i])) {
+        this.activeId.set(this.sections[i].id);
+        break;
+      }
+    }
+  }
+
+  private isAtBottom(): boolean {
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight > window.innerHeight;
+    return scrollable && window.scrollY + window.innerHeight >= doc.scrollHeight - 2;
+  }
+
+  private checkBottom(): void {
+    if (!this.isAtBottom() || this.sections.length === 0) return;
+    this.activeId.set(this.sections[this.sections.length - 1].id);
   }
 }

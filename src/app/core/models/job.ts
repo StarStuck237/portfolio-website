@@ -3,6 +3,7 @@ export interface Job {
   readonly company: string;
   readonly role: string;
   readonly dateRange: string;
+  readonly url?: string;
   readonly highlights: readonly string[];
   readonly techStack: readonly string[];
 }

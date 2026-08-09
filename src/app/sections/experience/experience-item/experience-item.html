@@ -1,6 +1,38 @@
-<div class="group">
+<div
+  class="relative -mx-4 -my-4 rounded-md p-4 transition-colors"
+  [class.group]="!!job().url"
+  [class.hover:bg-slate-800/50]="!!job().url"
+>
+  @if (job().url) {
+    <a
+      [href]="job().url"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="job().role + ' at ' + job().company"
+      class="absolute inset-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300"
+    ></a>
+  }
   <h3 class="font-semibold text-slate-200">
-    {{ job().role }} <span class="text-teal-300">· {{ job().company }}</span>
+    {{ job().role }} ·
+    <span class="inline-flex items-center gap-1 text-teal-300 group-hover:underline">
+      {{ job().company }}
+      @if (job().url) {
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <path d="M15 3h6v6" />
+          <path d="M10 14 21 3" />
+        </svg>
+      }
+    </span>
   </h3>
   <p class="mt-1 font-mono text-xs text-slate-400">{{ job().dateRange }}</p>
   <ul class="mt-3 space-y-2">

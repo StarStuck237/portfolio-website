@@ -6,6 +6,7 @@ export const EXPERIENCE: readonly Job[] = [
     company: 'Volgistics',
     role: 'Software Engineer',
     dateRange: '2023 — Present',
+    url: 'https://www.volgistics.com/',
     highlights: [
       'Built the Volunteer Import Utility end-to-end (Angular + Delphi, ~330 commits) — upload → field mapping → validation/preview → import execution.',
       'Built a comprehensive validation layer and resolved a long-running class of volunteer status/date bugs.',
@@ -21,6 +22,7 @@ export const EXPERIENCE: readonly Job[] = [
     company: 'Professional Computing Resources',
     role: 'Application Developer',
     dateRange: '2012 — 2023',
+    url: 'https://www.pcr.com/',
     highlights: [
       "SME for PCR-360's Service Desk, API, Crystal Reports, Charges, Inventory, and Dashboard modules.",
       'Built application-wide search wizards and automated workflow-based technician scheduling.',

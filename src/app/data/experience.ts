@@ -9,13 +9,12 @@ export const EXPERIENCE: readonly Job[] = [
     url: 'https://www.volgistics.com/',
     highlights: [
       'Built the Volunteer Import Utility end-to-end (Angular + Delphi, ~330 commits) — upload → field mapping → validation/preview → import execution.',
-      'Built a comprehensive validation layer and resolved a long-running class of volunteer status/date bugs.',
       'Built and grew DB-Interactor (Delphi API + Angular + Tauri desktop tool), including a major live in-place database-editing feature.',
-      'Led a multi-week WCAG 2.0 remediation effort across shared UI libraries (~15 issues).',
+      'Achieved WCAG 2.0 compliance across multiple shared UI libraries.',
       'Shipped 2FA and Cloudflare Turnstile CAPTCHA for VicNet/VBO.',
-      'Carried multiple Angular apps through the 17→21 upgrade ladder and a standalone-components migration.',
+      'Developed internal tools utilizing Python scripts to increase workflow efficiency',
     ],
-    techStack: ['Angular', 'TypeScript', 'Delphi', 'RxJS', 'Tauri', 'JWT', 'WCAG 2.0'],
+    techStack: ['Angular', 'TypeScript', 'Delphi', 'Python', 'Tauri', 'JWT', 'WCAG 2.0'],
   },
   {
     id: 'job-2',

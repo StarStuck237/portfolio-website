@@ -4,6 +4,8 @@
       <a
         [href]="link.href"
         [attr.aria-label]="link.label"
+        [attr.target]="link.icon === 'resume' ? '_blank' : null"
+        [attr.rel]="link.icon === 'resume' ? 'noopener noreferrer' : null"
         class="block text-slate-400 transition-colors hover:text-teal-300"
       >
         @switch (link.icon) {
@@ -64,6 +66,23 @@
             >
               <rect x="2.5" y="4.5" width="19" height="15" rx="2" />
               <path d="m3 6 9 7 9-7" />
+            </svg>
+          }
+          @case ('resume') {
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M14 2.5H6.5a1 1 0 0 0-1 1v17a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V8.5L14 2.5Z" />
+              <path d="M13.5 2.5V8a1 1 0 0 0 1 1h5" />
+              <path d="M8.5 13.5h7" />
+              <path d="M8.5 17h7" />
             </svg>
           }
         }

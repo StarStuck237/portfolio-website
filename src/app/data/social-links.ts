@@ -5,4 +5,5 @@ export const SOCIAL_LINKS: readonly SocialLink[] = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ben-cok-65165119/', icon: 'linkedin' },
   { label: 'Instagram', href: 'https://www.instagram.com/bendancinalittle/', icon: 'instagram' },
   { label: 'Email', href: 'mailto:bencok@gmail.com', icon: 'email' },
+  { label: 'Resume', href: '/resume.pdf', icon: 'resume' },
 ];

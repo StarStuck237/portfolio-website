@@ -5,27 +5,16 @@ export const PROJECTS: readonly Project[] = [
     id: 'project-1',
     name: 'Volunteer Import Utility',
     highlights: [
-      'End-to-end Angular + Delphi app letting nonprofits bulk-import volunteer data.',
-      'Full data-model field mapping with a validation/preview layer before import execution.',
+      'An Angular and Delphi app that lets users bulk-import their volunteer data, with field mapping and a preview step so nothing imports until it’s been checked.',
     ],
     techStack: ['Angular', 'TypeScript', 'RxJS', 'Delphi'],
   },
   {
     id: 'project-2',
-    name: 'DB-Interactor',
+    name: 'Database Interactor',
     highlights: [
-      'Internal Delphi API + Angular tool, packaged as a Tauri desktop app, for browsing/managing Volgistics databases.',
-      'Includes a live in-place field-editing feature.',
+      'An internal desktop tool, built with Delphi, Angular, and Tauri, for browsing and managing Volgistics databases — including editing records live, in place.',
     ],
     techStack: ['Angular', 'Delphi', 'Tauri'],
-  },
-  {
-    id: 'project-3',
-    name: 'PCR-360 Service Desk & Reporting',
-    highlights: [
-      'Application-wide search wizards and automated technician scheduling.',
-      'REST API redevelopment and custom Crystal Reports/dashboards for SLA metrics.',
-    ],
-    techStack: ['PHP', 'Zend Framework', 'Crystal Reports'],
   },
 ];

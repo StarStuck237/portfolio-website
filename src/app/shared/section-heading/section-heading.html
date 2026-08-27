@@ -1,5 +1,12 @@
-<h2 [id]="headingId()" class="flex items-center gap-4 text-2xl font-bold text-slate-200">
-  <span class="font-mono text-lg font-normal text-teal-300">{{ index() }}.</span>
-  <span>{{ title() }}</span>
-  <span class="h-px flex-1 bg-slate-600" aria-hidden="true"></span>
-</h2>
+<div class="flex flex-col lg:flex-row lg:items-baseline lg:gap-[22px]">
+  <span class="font-mono text-[11px] tracking-[0.2em] text-count lg:text-xs" aria-hidden="true">
+    {{ count() }}
+  </span>
+  <h2
+    [id]="headingId()"
+    class="mt-2.5 font-display text-[clamp(2.875rem,5vw,4.5rem)] leading-[0.9] tracking-[-0.01em] uppercase text-paper lg:mt-0 lg:leading-none"
+  >
+    {{ title() }}
+  </h2>
+  <span class="mt-[18px] h-px w-full bg-rule-section lg:mt-0 lg:grow" aria-hidden="true"></span>
+</div>

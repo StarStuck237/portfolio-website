@@ -8,7 +8,10 @@ import { TechPillList } from '../../../shared/tech-pill-list/tech-pill-list';
   templateUrl: './experience-item.html',
   styleUrl: './experience-item.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'block' },
 })
 export class ExperienceItem {
   job = input.required<Job>();
+  /** The current role carries the lit left edge; the rest are ruled off. */
+  current = input(false);
 }

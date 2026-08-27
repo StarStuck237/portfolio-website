@@ -1,0 +1,16 @@
+<footer
+  class="shell flex flex-col gap-3 pt-1 pb-[30px] lg:flex-row lg:items-center lg:justify-between lg:pt-6 lg:pb-[34px]"
+>
+  <p class="font-mono text-xs tracking-[0.1em] uppercase text-label lg:tracking-[0.12em]">
+    Built in Angular by {{ site.name }}
+    @if (site.location) {
+      <span> &#183; {{ site.location }}</span>
+    }
+  </p>
+  <a
+    href="#top"
+    class="font-mono text-xs tracking-[0.12em] uppercase text-label transition-colors hover:text-paper"
+  >
+    Back to the top <span aria-hidden="true">&#8593;</span>
+  </a>
+</footer>

@@ -1,16 +1,19 @@
 <a
   href="#main-content"
-  class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-teal-300 focus:px-4 focus:py-2 focus:font-semibold focus:text-slate-900"
+  class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-accent focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:uppercase focus:text-ink"
 >
   Skip to content
 </a>
 
-<div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-16 lg:flex lg:justify-between lg:px-24 lg:pt-0 lg:pb-0">
-  <app-sidebar />
-  <main id="main-content" class="pt-12 lg:w-[62%] lg:py-24">
-    <app-about />
-    <app-experience />
-    <!-- <app-projects /> -->
-    <app-contact />
-  </main>
-</div>
+<app-top-nav />
+
+<main id="main-content">
+  <app-hero />
+  <app-marquee />
+  <app-dance />
+  <app-experience />
+  <app-off-the-clock />
+  <app-contact />
+</main>
+
+<app-site-footer />

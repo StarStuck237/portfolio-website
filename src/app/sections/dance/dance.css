@@ -1,0 +1,12 @@
+/**
+ * The strip steps down left to right, so the three frames read as one phrase
+ * travelling rather than three photos in a row. Desktop only — the strip is
+ * hidden below `lg`, so no media query is needed.
+ */
+.dance-strip > :nth-child(2) {
+  margin-top: 30px;
+}
+
+.dance-strip > :nth-child(3) {
+  margin-top: 60px;
+}

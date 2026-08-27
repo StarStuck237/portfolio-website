@@ -1,0 +1,87 @@
+<section
+  id="dance"
+  appObserveSection
+  aria-labelledby="dance-heading"
+  class="shell scroll-mt-24 pt-11 pb-10 lg:pt-[104px] lg:pb-24"
+>
+  <app-section-heading count="1 2 3&amp;4" title="On the slot" headingId="dance-heading" />
+
+  <div class="mt-6 lg:mt-[46px] lg:flex lg:items-start lg:gap-14">
+    <div
+      class="h-[330px] overflow-hidden border border-rule-photo lg:h-[560px] lg:w-[470px] lg:shrink-0"
+    >
+      <img
+        [src]="feature.src"
+        [alt]="feature.alt"
+        [style.object-position]="feature.focus"
+        width="940"
+        height="1120"
+        loading="lazy"
+        class="size-full object-cover"
+      />
+    </div>
+
+    <div class="flex flex-col gap-[18px] lg:grow lg:gap-[30px]">
+      <p class="mt-6 text-xl leading-[1.45] text-pretty text-paper lg:mt-0 lg:text-[26px]">
+        West Coast Swing is a partner dance known for its slot configuration and stretchy
+        connection which may appear the two dancers can read each other's minds.
+      </p>
+      <p class="text-[15px] leading-[1.7] text-pretty text-body lg:text-[17px]">
+        Appearances can be deceiving, the dance almost entirely improvised. Nobody knows what is beyond
+        the next two counts, including the person leading them!
+      </p>
+      @for (paragraph of story; track $index) {
+        <p class="text-[15px] leading-[1.7] text-pretty text-body lg:text-[17px]">
+          @for (run of paragraph; track $index) {
+            @if (run.href) {
+              <a
+                [href]="run.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-b border-accent text-paper transition-colors hover:text-accent"
+                >{{ run.text }}</a
+              >
+            } @else {
+              <span>{{ run.text }}</span>
+            }
+          }
+        </p>
+      }
+
+      <div class="mt-2 flex flex-col gap-3 lg:mt-1 lg:flex-row lg:gap-3.5">
+        <a
+          [href]="site.instagramUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-accent px-[22px] py-[17px] text-center font-mono text-sm tracking-[0.09em] uppercase text-ink transition-colors hover:bg-paper lg:px-7 lg:text-left"
+        >
+          Watch me dance on Instagram <span aria-hidden="true">&#8594;</span>
+        </a>
+        <a
+          [href]="site.wcsPrimerUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-rule-strong px-[22px] py-[17px] text-center font-mono text-sm tracking-[0.09em] uppercase text-body transition-colors hover:border-paper hover:text-paper lg:px-7 lg:text-left"
+        >
+          What is WCS?
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dance-strip mt-6 hidden gap-6 lg:mt-10 lg:flex">
+    @for (photo of strip; track photo.src) {
+      <div class="h-[230px] flex-1 basis-0 overflow-hidden border border-rule-photo">
+        <img
+          [src]="photo.src"
+          [alt]="photo.alt"
+          [style.object-position]="photo.focus"
+          width="740"
+          height="460"
+          loading="lazy"
+          class="size-full object-cover"
+        />
+      </div>
+    }
+  </div>
+</section>

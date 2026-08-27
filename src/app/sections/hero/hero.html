@@ -1,0 +1,116 @@
+<section
+  id="top"
+  aria-labelledby="hero-heading"
+  class="shell pt-[34px] pb-[30px] lg:flex lg:gap-10 lg:pt-[84px] lg:pb-[72px]"
+>
+  <div class="lg:w-[680px] lg:shrink-0">
+    <p
+      class="font-mono text-[11px] leading-relaxed tracking-[0.16em] uppercase text-label lg:mb-[34px] lg:text-xs lg:tracking-[0.2em]"
+    >
+      @if (site.location) {
+        {{ site.location }} <span aria-hidden="true">/</span>
+      }
+      {{ site.role }} <span aria-hidden="true">/</span> Dancer
+    </p>
+
+    <h1
+      id="hero-heading"
+      class="mt-[22px] font-display leading-[0.86] tracking-[-0.015em] uppercase lg:mt-0"
+    >
+      <span class="block text-[clamp(2.5rem,6.4vw,5.75rem)] text-paper"> I build </span>
+      <span class="mt-1 block text-[clamp(3.5rem,8.9vw,8rem)] text-paper lg:mt-1.5">
+        software.
+      </span>
+      <span
+        class="mt-3.5 ml-[22px] block text-[clamp(2.5rem,6.4vw,5.75rem)] text-paper lg:mt-[26px] lg:ml-14"
+      >
+        I dance
+      </span>
+      <span
+        class="mt-1 ml-[22px] block text-[clamp(3.5rem,8.9vw,8rem)] text-accent lg:mt-1.5 lg:ml-14"
+      >
+        west coast
+      </span>
+      <span class="mt-1 ml-[22px] flex items-center gap-6 lg:mt-1.5 lg:ml-14">
+        <span
+          class="text-[clamp(3.5rem,8.9vw,8rem)] text-transparent [-webkit-text-stroke:1.5px_var(--color-accent)] lg:[-webkit-text-stroke:2px_var(--color-accent)]"
+        >
+          swing.
+        </span>
+        <app-slot-rule class="hidden grow lg:block" />
+      </span>
+    </h1>
+
+    <app-slot-rule class="mt-[22px] lg:hidden" />
+
+    <div class="mt-2.5 lg:mt-11 lg:ml-14 lg:flex lg:gap-12">
+      <p
+        class="font-mono text-[11px] leading-relaxed tracking-[0.1em] uppercase text-label lg:w-[260px] lg:shrink-0 lg:text-xs lg:tracking-[0.08em]"
+      >
+        <span aria-hidden="true">&#8593;</span> The slot: A straight line the dance lives on. Lead
+        and follow travel on it together with the music as their guide.
+      </p>
+      <p
+        class="mt-[26px] text-base leading-[1.65] text-pretty text-body lg:mt-0 lg:max-w-[400px] lg:text-[17px]"
+      >
+        Fifteen years of shipping software, and most Weekends on a dance floor. On the development
+        team for
+        <a
+          [href]="site.employer.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border-b border-accent text-paper transition-colors hover:text-accent"
+        >
+          {{ site.employer.name }}</a
+        >
+        and their suite of volunteer-management software.
+      </p>
+    </div>
+  </div>
+
+  <div class="relative mt-[30px] flex gap-3 lg:mt-0 lg:block lg:h-[660px] lg:grow">
+    <div
+      class="h-[250px] flex-1 basis-0 overflow-hidden border border-rule-photo lg:absolute lg:top-0 lg:left-[34px] lg:h-[386px] lg:w-[282px] lg:rotate-[-6deg]"
+    >
+      <img
+        [src]="photos[0].src"
+        [alt]="photos[0].alt"
+        [style.object-position]="photos[0].focus"
+        width="540"
+        height="740"
+        class="size-full object-cover"
+      />
+    </div>
+    <div
+      class="hidden overflow-hidden border border-rule-strong shadow-[0_24px_60px_rgba(6,4,10,0.6)] lg:absolute lg:top-[176px] lg:left-[196px] lg:block lg:h-[330px] lg:w-[250px] lg:rotate-[5deg]"
+    >
+      <img
+        [src]="photos[1].src"
+        [alt]="photos[1].alt"
+        [style.object-position]="photos[1].focus"
+        width="500"
+        height="660"
+        class="size-full object-cover"
+      />
+    </div>
+    <div
+      class="mt-[26px] h-[250px] flex-1 basis-0 overflow-hidden border border-rule-photo lg:absolute lg:top-[452px] lg:left-[6px] lg:mt-0 lg:h-[166px] lg:w-[206px] lg:rotate-[-3deg]"
+    >
+      <img
+        [src]="photos[2].src"
+        [alt]="photos[2].alt"
+        [style.object-position]="photos[2].focus"
+        width="412"
+        height="332"
+        class="size-full object-cover"
+      />
+    </div>
+    @if (credit) {
+      <p
+        class="hidden font-mono text-[11px] leading-relaxed tracking-[0.08em] uppercase text-label lg:absolute lg:top-[534px] lg:left-[236px] lg:block"
+      >
+        {{ credit.photographer }}<br />{{ credit.event }}
+      </p>
+    }
+  </div>
+</section>

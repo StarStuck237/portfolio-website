@@ -1,9 +1,8 @@
 import { SocialLink } from '../core/models/social-link';
 
+/** The "Elsewhere" column in the contact section. Email and resume are buttons. */
 export const SOCIAL_LINKS: readonly SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/StarStuck237', icon: 'github' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ben-cok-65165119/', icon: 'linkedin' },
-  { label: 'Instagram', href: 'https://www.instagram.com/bendancinalittle/', icon: 'instagram' },
-  { label: 'Email', href: 'mailto:bencok@gmail.com', icon: 'email' },
-  { label: 'Resume', href: '/resume.pdf', icon: 'resume' },
+  { label: 'Instagram', href: 'https://www.instagram.com/bendancinalittle/' },
+  { label: 'GitHub', href: 'https://github.com/StarStuck237' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ben-cok-65165119/' },
 ];

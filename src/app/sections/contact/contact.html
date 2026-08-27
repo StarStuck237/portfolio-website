@@ -2,16 +2,46 @@
   id="contact"
   appObserveSection
   aria-labelledby="contact-heading"
+  class="shell scroll-mt-24 border-t border-rule pt-6 pb-10 lg:pt-23 lg:pb-22"
 >
-  <app-section-heading index="04" title="Contact" headingId="contact-heading" />
-  <p class="mt-6 max-w-prose text-sm leading-relaxed">
-    I'm always happy to hear from fellow engineers, dancers, or anyone with an interesting
-    problem to solve. Feel free to reach out.
-  </p>
-  <a
-    href="mailto:bencok@gmail.com"
-    class="mt-6 inline-block rounded border border-teal-300 px-6 py-3 font-mono text-sm text-teal-300 transition-colors hover:bg-teal-300/10"
-  >
-    Say Hello
-  </a>
+  <app-slot-rule class="mt-5 lg:mt-0" />
+
+  <div class="mt-[26px] lg:mt-10 lg:flex lg:items-end lg:justify-between lg:gap-15">
+    <div>
+      <h2
+        id="contact-heading"
+        class="font-display text-[clamp(3.25rem,8.2vw,7.375rem)] leading-[0.86] tracking-[-0.015em] uppercase text-paper"
+      >
+        Ask me<br /><span class="text-accent">to dance.</span>
+      </h2>
+      <p
+        class="mt-5 max-w-[540px] text-base leading-[1.65] text-pretty text-body lg:mt-6 lg:text-lg"
+      >
+        Or about programming, web development, AI, or about where the next dance event is. Feel free to reach out!
+      </p>
+      <div class="mt-6 flex flex-col gap-3 lg:mt-8 lg:flex-row lg:gap-3.5">
+        <a
+          [href]="'mailto:' + site.email"
+          class="bg-accent px-[22px] py-[17px] text-center font-mono text-sm tracking-[0.06em] text-ink transition-colors hover:bg-paper lg:px-7 lg:text-left"
+        >
+          {{ site.email }}
+        </a>
+        <a
+          [href]="site.resumeUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="border border-rule-strong px-[22px] py-[17px] text-center font-mono text-sm tracking-[0.09em] uppercase text-body transition-colors hover:border-paper hover:text-paper lg:px-7 lg:text-left"
+        >
+          Resume (PDF)
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-6 lg:mt-0 lg:pb-2">
+      <h3 class="mb-1.5 font-mono text-[11px] tracking-[0.2em] uppercase text-label lg:mb-3">
+        Elsewhere
+      </h3>
+      <app-social-links-list [links]="socialLinks" />
+    </div>
+  </div>
 </section>

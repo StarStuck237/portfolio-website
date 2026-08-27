@@ -1,11 +1,16 @@
+<!--
+  Parked. Not rendered by the app shell today; kept in the design's vocabulary so
+  it can be dropped back in. The counts run in order down the page, so slotting
+  this in means resequencing the sections after it.
+-->
 <section
   id="projects"
   appObserveSection
   aria-labelledby="projects-heading"
-  class="mb-8 lg:mb-16"
+  class="shell scroll-mt-24 pt-5 pb-11 lg:pt-15 lg:pb-24"
 >
-  <app-section-heading index="03" title="Projects" headingId="projects-heading" />
-  <div class="mt-6 space-y-2">
+  <app-section-heading count="3&amp;4" title="Projects" headingId="projects-heading" />
+  <div class="mt-6 grid gap-4 lg:mt-[46px] lg:grid-cols-2 lg:gap-6">
     @for (project of projects; track project.id) {
       <app-project-card [project]="project" />
     }

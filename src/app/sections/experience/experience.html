@@ -1,13 +1,29 @@
 <section
-  id="experience"
+  id="work"
   appObserveSection
-  aria-labelledby="experience-heading"
-  class="mb-8 lg:mb-16"
+  aria-labelledby="work-heading"
+  class="shell scroll-mt-24 pt-5 pb-11 lg:pt-15 lg:pb-24"
 >
-  <app-section-heading index="02" title="Experience" headingId="experience-heading" />
-  <div class="mt-6 space-y-4">
+  <app-section-heading count="5&amp;6" title="What I've shipped" headingId="work-heading" />
+
+  <div class="mt-6 lg:mt-5">
     @for (job of jobs; track job.id) {
-      <app-experience-item [job]="job" />
+      <app-experience-item [job]="job" [current]="$first" />
     }
+
+    <div
+      class="flex flex-col gap-3 border-t border-rule pt-[30px] lg:flex-row lg:gap-10 lg:px-[29px]"
+    >
+      <p
+        class="font-mono text-[11px] tracking-[0.1em] uppercase text-label lg:w-[168px] lg:shrink-0 lg:text-xs"
+      >
+        Education
+      </p>
+      <p class="text-[15px] leading-[1.7] text-body lg:text-base">
+        {{ education.degree }}, {{ education.school }}.
+        <!-- <span class="text-paper">{{ education.honors }}</span -->
+        <!-- >. -->
+      </p>
+    </div>
   </div>
 </section>

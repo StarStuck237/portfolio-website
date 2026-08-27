@@ -8,7 +8,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SectionHeading {
-  index = input.required<string>();
+  /** A dance count — the six- and eight-count basics — rather than 01, 02, 03. */
+  count = input.required<string>();
   title = input.required<string>();
   headingId = input.required<string>();
 }

@@ -8,6 +8,7 @@ import { TechPillList } from '../../../shared/tech-pill-list/tech-pill-list';
   templateUrl: './project-card.html',
   styleUrl: './project-card.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'block' },
 })
 export class ProjectCard {
   project = input.required<Project>();

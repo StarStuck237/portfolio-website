@@ -1,0 +1,83 @@
+<section
+  id="off-the-clock"
+  appObserveSection
+  aria-labelledby="off-the-clock-heading"
+  class="shell scroll-mt-24 pt-5 pb-11 lg:pt-15 lg:pb-25"
+>
+  <app-section-heading count="7&amp;8" title="Off the clock" headingId="off-the-clock-heading" />
+
+  <ul class="mt-6 grid gap-4 lg:mt-[46px] lg:grid-cols-3 lg:gap-6">
+    @for (interest of interests; track interest.id) {
+      <li class="flex flex-col gap-4 border border-rule bg-surface p-6 lg:p-8">
+        @switch (interest.icon) {
+          @case ('running') {
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-accent"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="15" cy="4.5" r="2" />
+              <path d="M13 21l-2.5-5 3-3-1.5-4-3.5 2-1.5 3" />
+              <path d="M12.5 13l4 2 1.5 4" />
+            </svg>
+          }
+          @case ('reading') {
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-accent"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M3 5.5C5.5 4 9 4 11.5 5.5v13C9 17 5.5 17 3 18.5z" />
+              <path d="M20.5 5.5C18 4 14.5 4 12 5.5v13c2.5-1.5 6-1.5 8.5 0z" />
+            </svg>
+          }
+          @case ('keeping-up') {
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-accent"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="2.5" y="4.5" width="19" height="12" rx="1.5" />
+              <path d="M8 20h8M12 16.5V20" />
+              <path d="M7 9l2.5 1.5L7 12" />
+              <path d="M12 12.5h5" />
+            </svg>
+          }
+        }
+        <h3 class="font-display text-2xl uppercase text-paper lg:text-[26px]">
+          {{ interest.title }}
+        </h3>
+        <p class="text-[15px] leading-[1.7] text-body">
+          @if (interest.id === 'reading' && currentBook) {
+            Currently: {{ currentBook }}.
+          }
+          {{ interest.body }}
+        </p>
+      </li>
+    }
+  </ul>
+</section>

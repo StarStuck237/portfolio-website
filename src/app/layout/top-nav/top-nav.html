@@ -1,0 +1,91 @@
+<header class="sticky top-0 z-40 border-b border-rule bg-ink/95 backdrop-blur">
+  <div class="shell flex items-center justify-between py-4 lg:py-7">
+    <a
+      href="#top"
+      class="flex items-center gap-3 lg:gap-3.5"
+      [attr.aria-label]="site.name + ' — back to the top'"
+    >
+      <span
+        class="flex size-11 items-center justify-center bg-accent font-display text-xl tracking-[0.02em] text-ink lg:size-[34px] lg:text-[17px]"
+        aria-hidden="true"
+      >
+        {{ site.initials }}
+      </span>
+      <span class="font-mono text-xs tracking-[0.16em] text-paper lg:tracking-[0.18em]">
+        {{ site.name.toUpperCase() }}
+      </span>
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-9 lg:flex">
+      @for (link of navLinks; track link.id) {
+        <a
+          [href]="'#' + link.id"
+          (click)="go(link.id)"
+          [attr.aria-current]="activeSection.active() === link.id ? 'location' : null"
+          class="border-b-2 border-transparent pb-1 font-mono text-xs uppercase tracking-[0.16em] transition-colors hover:text-paper"
+          [class.border-accent]="activeSection.active() === link.id"
+          [class.text-paper]="activeSection.active() === link.id"
+          [class.text-body]="activeSection.active() !== link.id"
+        >
+          {{ link.label }}
+        </a>
+      }
+      <a
+        [href]="site.resumeUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="border border-accent px-[18px] py-[11px] font-mono text-xs uppercase tracking-[0.16em] text-accent transition-colors hover:bg-accent hover:text-ink"
+      >
+        Resume
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-nav"
+      aria-label="Menu"
+      class="flex size-11 flex-col items-end justify-center gap-1.5 lg:hidden"
+    >
+      <span
+        class="h-0.5 w-6 bg-paper transition-transform"
+        [class.translate-y-1]="menuOpen()"
+      ></span>
+      <span
+        class="h-0.5 bg-accent transition-all"
+        [class.w-4]="!menuOpen()"
+        [class.w-6]="menuOpen()"
+        [class.-translate-y-1]="menuOpen()"
+      ></span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <nav id="mobile-nav" aria-label="Primary" class="border-t border-rule lg:hidden">
+      <div class="shell flex flex-col py-2">
+        @for (link of navLinks; track link.id) {
+          <a
+            [href]="'#' + link.id"
+            (click)="go(link.id)"
+            [attr.aria-current]="activeSection.active() === link.id ? 'location' : null"
+            class="border-b border-rule py-4 font-mono text-xs uppercase tracking-[0.16em]"
+            [class.text-accent]="activeSection.active() === link.id"
+            [class.text-body]="activeSection.active() !== link.id"
+          >
+            {{ link.label }}
+          </a>
+        }
+        <a
+          [href]="site.resumeUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="menuOpen.set(false)"
+          class="py-4 font-mono text-xs uppercase tracking-[0.16em] text-accent"
+        >
+          Resume (PDF)
+        </a>
+      </div>
+    </nav>
+  }
+</header>

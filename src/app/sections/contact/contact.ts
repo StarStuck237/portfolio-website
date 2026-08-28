@@ -15,4 +15,6 @@ import { SITE } from '../../data/site';
 export class Contact {
   protected readonly site = SITE;
   protected readonly socialLinks = SOCIAL_LINKS;
+  protected readonly emailLocal = SITE.email.slice(0, SITE.email.indexOf('@'));
+  protected readonly emailDomain = SITE.email.slice(SITE.email.indexOf('@') + 1);
 }

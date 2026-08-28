@@ -17,15 +17,15 @@
       <p
         class="mt-5 max-w-[540px] text-base leading-[1.65] text-pretty text-body lg:mt-6 lg:text-lg"
       >
-        Or about programming, web development, AI, or about where the next dance event is. Feel free to reach out!
+        Or about programming, web development, AI, or about where the next dance event is. Feel free
+        to reach out!
       </p>
       <div class="mt-6 flex flex-col gap-3 lg:mt-8 lg:flex-row lg:gap-3.5">
         <a
           [href]="'mailto:' + site.email"
           class="bg-accent px-[22px] py-[17px] text-center font-mono text-sm tracking-[0.06em] text-ink transition-colors hover:bg-paper lg:px-7 lg:text-left"
+          >{{ emailLocal }}<span>&#64;</span>{{ emailDomain }}</a
         >
-          {{ site.email }}
-        </a>
         <a
           [href]="site.resumeUrl"
           target="_blank"

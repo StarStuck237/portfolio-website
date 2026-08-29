@@ -19,6 +19,9 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+        env:
+          # Optional: without it the build uses the committed video list.
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
       - uses: cloudflare/wrangler-action@v4
         with:

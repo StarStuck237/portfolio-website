@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ObserveSectionDirective } from '../../core/directives/observe-section.directive';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
+import { DanceVideos } from './dance-videos/dance-videos';
 import { DANCE_FEATURE, DANCE_STRIP } from '../../data/dance-photos';
 import { DANCE_STORY, SITE } from '../../data/site';
 
 @Component({
   selector: 'app-dance',
-  imports: [SectionHeading, ObserveSectionDirective],
+  imports: [SectionHeading, ObserveSectionDirective, DanceVideos],
   templateUrl: './dance.html',
   styleUrl: './dance.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

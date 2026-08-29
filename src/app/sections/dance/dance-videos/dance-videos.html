@@ -1,0 +1,129 @@
+@if (featured) {
+  <!--
+    The same anatomy as app-section-heading one level down: label instead of a
+    count, an h3 instead of the display h2, the same hairline running out to the
+    gutter.
+  -->
+  <div class="flex flex-col lg:flex-row lg:items-baseline lg:gap-[22px]">
+    <span class="font-mono text-[11px] tracking-[0.2em] uppercase text-label" aria-hidden="true">
+      On video
+    </span>
+    <h3 class="mt-2.5 font-display text-2xl uppercase text-paper lg:mt-0 lg:text-[26px]">
+      See it move
+    </h3>
+    <span class="mt-[18px] h-px w-full bg-rule-section lg:mt-0 lg:grow" aria-hidden="true"></span>
+  </div>
+
+  <div class="mt-6 lg:mt-[34px] lg:flex lg:items-start lg:gap-14">
+    <!-- The featured video carries the weight; the reel beside it is the rest. -->
+    <a
+      [href]="featured.watchUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group block lg:w-[704px] lg:shrink-0"
+    >
+      <div
+        class="relative aspect-video overflow-hidden border border-rule-photo transition-colors group-hover:border-rule-strong"
+      >
+        <img
+          [src]="featured.thumbnail"
+          (error)="onThumbnailError($event, featured)"
+          alt=""
+          width="1280"
+          height="720"
+          loading="lazy"
+          class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+        />
+        <span
+          class="absolute bottom-3.5 left-3.5 flex size-12 items-center justify-center bg-accent transition-colors group-hover:bg-paper lg:bottom-5 lg:left-5 lg:size-14"
+          aria-hidden="true"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            class="lg:size-[22px]"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8 5.2 18.8 12 8 18.8Z" fill="currentColor" class="text-ink" />
+          </svg>
+        </span>
+        <span
+          class="absolute right-3 bottom-3 bg-ink/90 px-[9px] py-[5px] font-mono text-[11px] tracking-[0.06em] text-paper lg:right-4 lg:bottom-4"
+        >
+          {{ featured.duration }}
+        </span>
+      </div>
+      <h4
+        class="mt-4 font-display text-[26px] leading-[1.05] uppercase text-paper transition-colors group-hover:text-accent lg:mt-5 lg:text-[30px]"
+      >
+        {{ featured.title }}
+      </h4>
+      <p class="mt-2 font-mono text-[11px] tracking-[0.1em] uppercase text-label">
+        {{ featured.meta }}
+      </p>
+    </a>
+
+    <div class="mt-[26px] flex flex-col lg:mt-0 lg:grow">
+      @for (video of reel; track video.id) {
+        <a
+          [href]="video.watchUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex gap-3.5 border-t border-rule py-4 lg:gap-4 lg:py-[18px]"
+        >
+          <div
+            class="relative aspect-video w-32 shrink-0 self-start overflow-hidden border border-rule-photo transition-colors group-hover:border-rule-strong lg:w-44"
+          >
+            <img
+              [src]="video.thumbnail"
+              (error)="onThumbnailError($event, video)"
+              alt=""
+              width="1280"
+              height="720"
+              loading="lazy"
+              class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
+            />
+            <span
+              class="absolute bottom-1.5 left-1.5 flex size-[26px] items-center justify-center bg-accent transition-colors group-hover:bg-paper lg:bottom-2 lg:left-2 lg:size-[30px]"
+              aria-hidden="true"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                class="lg:size-[14px]"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8 5.2 18.8 12 8 18.8Z" fill="currentColor" class="text-ink" />
+              </svg>
+            </span>
+          </div>
+          <div>
+            <h4
+              class="font-display text-[17px] leading-[1.1] uppercase text-paper transition-colors group-hover:text-accent lg:text-[18px]"
+            >
+              {{ video.title }}
+            </h4>
+            <p
+              class="mt-1.5 font-mono text-[11px] tracking-[0.1em] uppercase text-label lg:mt-[7px]"
+            >
+              {{ video.meta }}
+            </p>
+          </div>
+        </a>
+      }
+
+      <div class="border-t border-rule pt-[22px]">
+        <a
+          [href]="site.youtubePlaylistUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block border border-rule-strong px-[22px] py-[17px] text-center font-mono text-sm tracking-[0.09em] uppercase text-body transition-colors hover:border-paper hover:text-paper lg:inline-block lg:px-7 lg:text-left"
+        >
+          Every video on YouTube <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+}

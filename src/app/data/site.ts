@@ -15,6 +15,8 @@ export const SITE = {
   email: 'bencok@gmail.com',
   resumeUrl: '/resume.pdf',
   instagramUrl: 'https://www.instagram.com/bendancinalittle/',
+  /** Every competition video, newest first. The video band links out to it. */
+  youtubePlaylistUrl: 'https://www.youtube.com/playlist?list=PLvxoEaj3Hd_6jp2FZXoNtdNnjYsWRs6aV',
   employer: { name: 'Volgistics', url: 'https://www.volgistics.com/' },
   /** Primer linked from the dance section's secondary button. */
   wcsPrimerUrl: 'https://en.wikipedia.org/wiki/West_Coast_Swing',

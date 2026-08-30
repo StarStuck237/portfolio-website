@@ -29,24 +29,24 @@ export const EXPERIENCE: readonly Job[] = [
       'PHPUnit',
     ],
   },
-  {
-    id: 'job-3',
-    company: 'Kinetic Technology Solutions',
-    role: 'Owner & President',
-    dateRange: '2011 — 2015',
-    summary:
-      'Ran a small web development consultancy, taking client projects start to finish — including an online auction site where people bid on a fresh set of items every week.',
-    techStack: ['PHP', 'MySQL', 'Web Development'],
-  },
-  {
-    id: 'job-4',
-    company: 'Silas Media Consultants',
-    role: 'Director of IT & Development',
-    dateRange: '2010 — 2011',
-    summary:
-      'Ran IT operations, from the network to vendor relationships, grew the web development side across several platforms, and kept the Linux servers hosting client sites running.',
-    techStack: ['Linux', 'WordPress', 'Web Development'],
-  },
+  // {
+  //   id: 'job-3',
+  //   company: 'Kinetic Technology Solutions',
+  //   role: 'Owner & President',
+  //   dateRange: '2011 — 2015',
+  //   summary:
+  //     'Ran a small web development consultancy, taking client projects start to finish — including an online auction site where people bid on a fresh set of items every week.',
+  //   techStack: ['PHP', 'MySQL', 'Web Development'],
+  // },
+  // {
+  //   id: 'job-4',
+  //   company: 'Silas Media Consultants',
+  //   role: 'Director of IT & Development',
+  //   dateRange: '2010 — 2011',
+  //   summary:
+  //     'Ran IT operations, from the network to vendor relationships, grew the web development side across several platforms, and kept the Linux servers hosting client sites running.',
+  //   techStack: ['Linux', 'WordPress', 'Web Development'],
+  // },
 ];
 
 export const EDUCATION = {

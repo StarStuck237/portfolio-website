@@ -1,0 +1,97 @@
+:host {
+  display: block;
+}
+
+/**
+ * The rail. Two things make it work:
+ *
+ * The dot is a flex item aligned to its row's baseline, so its box sits on the
+ * same baseline as the date beside it — a 9px square against roughly 9px of
+ * capitals — and it tracks the text at any size rather than a fixed offset.
+ *
+ * Each row then draws the line from its own dot down to the next row's dot, so
+ * nothing hangs above the first stop or trails past the last. `--dot-top` is
+ * where the dot sits inside a row; it is derived from whichever text sets the
+ * row's baseline, which differs between the two layouts below.
+ */
+.stop {
+  position: relative;
+  --dot: 9px;
+  /* Mobile: the date leads the row, so the 11px mono line sets the baseline. */
+  --dot-top: 3px;
+}
+
+.stop::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: var(--dot-top);
+  bottom: calc(var(--dot-top) * -1);
+  width: 1px;
+  background: var(--color-rule-section);
+}
+
+.stop:last-of-type::before {
+  display: none;
+}
+
+.tick {
+  position: relative;
+  z-index: 1;
+  width: var(--dot);
+  height: var(--dot);
+  flex-shrink: 0;
+  align-self: baseline;
+}
+
+/**
+ * Below `lg` the row wraps: dot, date and countdown on the first line, the
+ * event itself on the second, indented to clear the dot.
+ */
+.stop {
+  flex-wrap: wrap;
+}
+
+.date {
+  flex-grow: 1;
+}
+
+.days {
+  order: 2;
+}
+
+.body {
+  order: 3;
+  width: 100%;
+  padding-left: calc(var(--dot) + 16px);
+}
+
+@media (min-width: 64rem) {
+  .stop {
+    flex-wrap: nowrap;
+    /* Desktop: the 32px name sets the baseline. Anton's ascent is ~0.844em at
+       line-height 1, so the dot lands that far down less its own height. */
+    --name: 32px;
+    --dot-top: calc(var(--name) * 0.844 - var(--dot));
+  }
+
+  .date {
+    flex-grow: 0;
+    width: 145px;
+  }
+
+  .body {
+    order: 2;
+    flex-grow: 1;
+    width: auto;
+    padding-left: 0;
+  }
+
+  .days {
+    order: 3;
+  }
+
+  .name {
+    font-size: var(--name);
+  }
+}

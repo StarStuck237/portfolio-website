@@ -7,7 +7,7 @@ import { Video } from '../core/models/video';
  * upload first, and committed so the site still builds without an API key. To
  * change what appears here, change the playlist and rebuild.
  *
- * Last synced 2026-08-29.
+ * Last synced 2026-08-30.
  */
 export const DANCE_VIDEOS: readonly Video[] = [
   {

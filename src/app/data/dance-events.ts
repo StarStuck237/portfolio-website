@@ -20,7 +20,7 @@ export const DANCE_EVENTS: readonly DanceEvent[] = [
   {
     id: 'groovetopia-2026',
     name: 'Groovetopia',
-    city: 'Erlanger, KY',
+    city: 'Cincinnati, OH',
     start: '2026-11-06',
     end: '2026-11-08',
     url: 'https://jasonandsophy.com/groovetopia-dance-party',
@@ -28,7 +28,7 @@ export const DANCE_EVENTS: readonly DanceEvent[] = [
   {
     id: 'cash-bash-2026',
     name: 'Cash Bash',
-    city: 'Twinsburg, OH',
+    city: 'Cleveland, OH',
     start: '2026-11-26',
     end: '2026-11-29',
     url: 'https://cashdanceclub.org/cash-bash/',
